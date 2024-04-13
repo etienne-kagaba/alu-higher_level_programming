@@ -1,2 +1,3 @@
--- lists all cities contained in the database hbtn_0d_usa
-SELECT cities.id, cities.name, states.name FROM cities LEFT JOIN states ON states.id = cities.state_id ORDER BY cities.id;
+-- lists all the cities in current database, sorted by cities.id in ascending order
+-- displayed as [cities.id]-[cities.name]-[state.name]
+SELECT c.`id`, c.`name`, s.`name` FROM `cities` AS c INNER JOIN `states` AS s ON c.`state_id` = s.`id` ORDER BY c.`id` ASC;

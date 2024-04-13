@@ -1,9 +1,10 @@
--- lists Comedy shows in the database hbtn_0d_tvshows
--- lists rows of a database corresponding to a column value
-SELECT title
-FROM tv_shows
-LEFT JOIN tv_show_genres ON tv_shows.id = tv_show_genres.show_id
-LEFT JOIN tv_genres ON tv_show_genres.genre_id = tv_genres.id
-WHERE tv_genres.name = 'Comedy'
-GROUP BY title
-ORDER BY title ASC;
+-- lists all shows of genre 'Comedy'
+-- display as tv_shows.title
+SELECT tv.title
+       FROM tv_show_genres AS tvg
+       LEFT JOIN tv_shows AS tv
+       ON tvg.show_id = tv.id
+       LEFT JOIN tv_genres AS g
+       ON g.id = tvg.genre_id
+       WHERE g.name = "Comedy"
+       ORDER BY tv.title ASC;

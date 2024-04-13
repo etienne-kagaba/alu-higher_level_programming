@@ -1,6 +1,2 @@
--- Lists all records of the table second_table having a name value in my MySQL server.
--- Records are ordered by descending score.
-SELECT `score`, `name`
-FROM `second_table`
-WHERE `name` != ""
-ORDER BY `score` DESC
+-- lists score and name records from second_table ordered by score (top first), doesn't list row without name value
+SELECT `score`, `name` FROM second_table WHERE `name` IS NOT NULL ORDER BY `score` DESC;
